@@ -1,24 +1,30 @@
-package io.workoutlogger.split;
+package io.workoutlogger.exercise;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import io.workoutlogger.split.Split;
 
 @Entity
-public class Split {
+public class Exercise {
 	
 	@Id
 	private String id;
 	private String name;
-	private String description;
+	private String description;	
+	@ManyToOne
+	private Split split;
 	
-	public Split() {
+	public Exercise() {
 	}
 	
-	public Split(String id, String name, String description) {
+	public Exercise(String id, String name, String description, String splitId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.split = new Split(splitId, "","");
 	}
 	public String getId() {
 		return id;
@@ -37,6 +43,14 @@ public class Split {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Split getSplit() {
+		return split;
+	}
+
+	public void setSplit(Split split) {
+		this.split = split;
 	}
 
 	
