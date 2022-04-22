@@ -1,4 +1,4 @@
-package com.likeashark.post.management;
+package com.workout.post.management;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
